@@ -16,40 +16,23 @@ function divide10Fn(n) {
 }
 
 // compose . reduce (closure)
-// previousValue => divide10Fn, currentValue => sub10Fn
 function composeFn(fn1, fn2) {
-  // nested => closure (fn args => inner fns)
+
   return function (n) {
-    return fn1(fn2(n)); // divide10Fn(sub10Fn(10))
+    return fn1(fn2(n));
   };
 }
 
 function PipeFn(fn1, fn2) {
-  // nested => closure (fn args => inner fns)
   return function (...nums) {
-    // [10,20]
-    return fn2(fn1(...nums)); // divide10Fn(sub10Fn(10)) 10,20
+    return fn2(fn1(...nums));
   };
 }
 
 function numberFactory(...fns) {
-  return fns.reduce(composeFn); //reducer, initialValue
+  return fns.reduce(composeFn);
 }
 
 const output = numberFactory(divide10Fn, sub10Fn, doubleFn, add10Fn)(10, 20);
 
 console.log(output);
-
-// flipkart user
-const users = {
-  name: 'Rohit',
-  wallet: 3000,
-  order: [],
-  cart: [],
-  purchased: [],
-};
-// add to wallet
-// add to order//
-// add to cart..
-/// purchase the order in the cart//
-// emtpy cart
