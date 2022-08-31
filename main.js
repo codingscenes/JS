@@ -15,7 +15,7 @@ function divide10Fn(n) {
   return n / 10;
 }
 
-// compose . reduce (closure)
+// compose / reduce (closure)
 function composeFn(fn1, fn2) {
 
   return function (n) {
