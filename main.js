@@ -1,38 +1,40 @@
-// functions required for the compose
-function add10Fn(n) {
-  return n + 10;
+// // 1. callback - synchronous
+// // Direct style (return)
+// function add(x, y) {
+//     return x + y;
+// }
+
+// const output = add(3, 4)
+
+// console.log(output);
+
+// // The continuation - pass style
+// function add2(x, y, cb) {
+
+//     return cb(x + y);
+
+//     console.log('This is after cb has run')
+// }
+
+// console.log('line no 19')
+// add2(3, 4, function (result) {
+//     console.log(result)
+// })
+// console.log('This is my line no 22');
+
+
+// 2. Asynchronous callback (future result)
+
+function add(x , y, callback) {
+    // connect => to => server => x  + y;
+    setTimeout(() => { // Closure: add {x: 2, y: 4, callback : f(result) {}}
+        callback(x + y);
+    }, 2000)// asynchronous
+    console.log('Work is over') // 1
+    return true;
 }
 
-function doubleFn(n) {
-  return n * n;
-}
-
-function sub10Fn(n) {
-  return n - 10;
-}
-
-function divide10Fn(n) {
-  return n / 10;
-}
-
-// compose / reduce (closure)
-function composeFn(fn1, fn2) {
-
-  return function (n) {
-    return fn1(fn2(n));
-  };
-}
-
-function PipeFn(fn1, fn2) {
-  return function (...nums) {
-    return fn2(fn1(...nums));
-  };
-}
-
-function numberFactory(...fns) {
-  return fns.reduce(composeFn);
-}
-
-const output = numberFactory(divide10Fn, sub10Fn, doubleFn, add10Fn)(10, 20);
-
-console.log(output);
+add(2, 4, function (result) {
+        console.log('This is result', result) // 3
+});
+ console.log('out of function'); // 2
