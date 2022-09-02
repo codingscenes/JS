@@ -43,10 +43,10 @@ const fetchToDo = (url, timeMs = 0) => {
     });
 };
 
-const url1 = `https://jsonplaceholder.cypress.io/todoss/1`;
-const url2 = `https://jsonplaceholder.cypress.io/todoss/2`;
-const url3 = `https://jsonplaceholder.cypress.io/todoss/3`;
-const url4 = `https://jsonplaceholder.cypress.io/todoss/4`;
+const url1 = `https://jsonplaceholder.cypress.io/todos/1`;
+const url2 = `https://jsonplaceholder.cypress.io/todos/2`;
+const url3 = `https://jsonplaceholder.cypress.io/todos/3`;
+const url4 = `https://jsonplaceholder.cypress.io/todos/4`;
 
 const p1 = fetchToDo(url1);
 const p2 = fetchToDo(url2);
@@ -56,7 +56,7 @@ const p4 = fetchToDo(url4);
 // Using Promise static //.all.any
 
 // .allSettled()
-const resultPromise = Promise.allSettled([p1, p2, p3, p4])
+const resultPromise = Promise.all([p1, p2, p3, p4])
 // extracting data from result promise
 resultPromise.then((response) => {
   console.log('response', response);
