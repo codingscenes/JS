@@ -1,28 +1,51 @@
-//Guess the output 
-console.log(1);
-function printHello() {
-  console.log('Hello');
-}
+const numElement = document.getElementById('bigNumber');
+let timer = null;
+let btnTimerStart = 'Start';
+let btnTimerResume = 'Resume';
+let btnTimerStop = 'Stop';
+let timerBtnState = btnTimerStop;
 
-function cb1() {
-  console.log(2);
-}
-function cb2() {
-  console.log(3);
-}
-function cb3(value) {
-  console.log(value);
-  return 8;
-}
-function cb4(value) {
-  console.log(value);
-}
+let timerCount = 0;
+// for increment
+document
+  .getElementById('startCount')
+  .addEventListener('click', function (event) {
+    if (timerBtnState == btnTimerStop) {
+      event.target.textContent = btnTimerStop;
+      timerBtnState = btnTimerStart;
+      startTimer(false);
+    } else if (timerBtnState == btnTimerStart) {
+      event.target.textContent = btnTimerResume;
+      timerBtnState = btnTimerResume;
+      timerCount = +numElement.textContent || 0;
+      clearInterval(timer);
+    } else if (timerBtnState == btnTimerResume) {
+      timerBtnState = btnTimerStart;
+      event.target.textContent = btnTimerStop;
+      numElement.textContent = +timerCount;
+      timerCount = null;
+      startTimer(false);
+    }
+  });
 
-setTimeout(cb1, 0);
+document.getElementById('stopCount').addEventListener('click', function () {
+  timerCount = null;
+  timerBtnState = btnTimerStop;
+  const btnStartCountElem = document.getElementById('startCount');
+  clearInterval(timer);
+  btnStartCountElem.innerText = btnTimerStart;
+  numElement.textContent = 0;
+});
 
-setTimeout(cb2, 100);
-
-Promise.resolve(4).then(cb3).then(cb4);
-
-printHello();
-console.log(5);
+function startTimer(reset) {
+  if (reset && timer) {
+    numElement.textContent = 0;
+    clearInterval(timer);
+  } else {
+    clearInterval(timer);
+  }
+  timer = setInterval(() => {
+    let prevNum = timerCount || +numElement.textContent;
+    numElement.textContent = prevNum + 1;
+  }, 1000);
+}

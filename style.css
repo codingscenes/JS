@@ -1,0 +1,44 @@
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.content-second {
+  display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.girl-face {
+  width: 200px;
+  transform: scaleX(-1);
+}
+
+.fan-face {
+  width: 130px;
+}
+
+#active {
+  display: none;
+}
+#pause {
+  display: flex;
+}
+#bigNumber {
+  font-size: 128px;
+}

@@ -1,69 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
-      body {
-        font-family: sans-serif;
-      }
-      .container {
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-      }
-      .box {
-        width: 200px;
-        height: 200px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        color: white;
-        padding: 5px;
-      }
-      .box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
-      }
-
-      .pink {
-        background-color: #ff6363;
-      }
-      .voila {
-        background-color: #9825d5e6;
-      }
-      .blue {
-        background-color: #373399;
-      }
-      .orange {
-        background-color: #dc6925;
-      }
-
-      .userId {
-        font-size: 50px;
-      }
-      .status {
-        font-size: 40px;
-      }
-      .red {
-        background-color: red;
-      }
-    </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Scenes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="./style.css" />
+
   </head>
   <body>
-    <h1>Job Queue</h1>
-    <div>
-      - Promises (resolve(), reject()) - Browser observers (Mutation observer,
-      Intersection Observer, Performance Observer, Resize Observer)
+    <div class="container">
+      <div class="contents">
+        <div class="header">
+          <h1 id="bigNumber">0</h1>
+        </div>
+        <div class="buttons">
+          <div class="increment"><button type="button" class="btn btn-success" id="startCount">Start</button></div>
+          <div class="decrement"><button type="button" class="btn btn-danger" id="stopCount">Reset</button></div>
+        </div>
+      </div>
+      <hr>
+      <div class="content-second" id="active">
+
+        <div class="fan"> <img class="fan-face" src="./New folder/assets/fan.gif"/></div>
+         <div class="girl">
+          <img class="girl-face" src="./New folder/assets/girl.gif"/>
+        </div>
+      </div>
+        <div class="content-second" id="pause">
+
+        <div class="fan"> <img class="fan-face" src="./New folder/assets/fan.jpeg"/></div>
+         <div class="girl">
+          <img class="girl-face" src="./New folder/assets/girl.jpeg"/>
+        </div>
+      </div>
+         <div class="buttons">
+          <div class="increment"><button type="button" class="btn btn-success" id="active-btn">Start</button></div>
+          <div class="decrement"><button type="button" class="btn btn-danger" id="pause-btn">Stop</button></div>
+        </div>
     </div>
+
     <script src="./main.js"></script>
+    <script src="./funny.js"></script>
+
   </body>
 </html>
